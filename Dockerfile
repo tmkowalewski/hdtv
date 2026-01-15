@@ -12,8 +12,8 @@ WORKDIR /install
 COPY . /install
 
 RUN python3 -m pipx install . && \
-    bash -c "Xvfb :0 -screen 0 1024x768x16 &" && \
-    DISPLAY=:0 hdtv --rebuild-usr --execute exit
+    bash -c "Xvfb :99 -screen 0 1024x768x16 &" && \
+    DISPLAY=:99 hdtv --rebuild-usr --execute exit
 
 WORKDIR /work
 CMD hdtv
